@@ -280,7 +280,7 @@ const Footer = () => {
             <div>
               <h3 style={styles.heading}>Others</h3>
               <p style={styles.note}>
-                ABC was honored with a Transport Ratna.
+                Asia Master was honored with a Transport Ratna.
               </p>
 
               <h3 style={styles.heading}>Follow Us</h3>
@@ -299,7 +299,7 @@ const Footer = () => {
       </div>
 
       <div style={styles.bottom}>
-        <span>© 2026 ABC Express. All Rights Reserved</span>
+        <span>© 2026 Asia Master. All Rights Reserved</span>
         <span style={{ fontSize: "26px", fontWeight: "900" }}>db</span>
       </div>
     </footer>

@@ -84,7 +84,7 @@ const FTLSection = () => {
 
     image: {
       width: "100%",
-      height: "860px",
+      height: "740px",
       objectFit: "cover",
       objectPosition: "center",
       display: "block",
@@ -153,7 +153,7 @@ const FTLSection = () => {
       <div style={styles.inner}>
         <div style={styles.left}>
           <img
-            src="https://abctransport.co.in/images/Full%20Truck%20Load%20&%20Part%20Truck%20Load.jpg"
+            src="https://images.unsplash.com/photo-1618582948377-cd7eb0e8cb14?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="Full Truck Load"
             style={styles.image}
           />
