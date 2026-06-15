@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import logo from "../../public/images/asiamasterlogo.png";
+import logo from "../../../public/images/asiamasterlogo.png";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -26,7 +26,7 @@ const Navbar = () => {
       zIndex: 1000,
       display: "flex",
       alignItems: "center",
-      padding: "0 105px",
+      padding: "0 65px",
       boxSizing: "border-box",
       background: scrolled ? "#ffffff" : "transparent",
       boxShadow: scrolled ? "0 2px 12px rgba(0,0,0,0.08)" : "none",
@@ -40,13 +40,14 @@ const Navbar = () => {
       display: "block",
       flexShrink: 0,
       cursor: "pointer",
+      margin:"10px 0 0 0"
     },
 
     menu: {
       display: "flex",
       alignItems: "center",
-      gap: "34px",
-      marginLeft: "90px",
+      gap: "30px",
+      marginLeft: "50px",
       flex: 1,
       whiteSpace: "nowrap",
     },
@@ -65,18 +66,19 @@ const Navbar = () => {
     buttons: {
       display: "flex",
       alignItems: "center",
-      gap: "24px",
+      gap: "30px",
       flexShrink: 0,
+      // marginLeft:"40px"
     },
 
     trackBtn: {
-      width: "175px",
+      width: "145px",
       height: "40px",
       border: "none",
       borderRadius: "25px",
       background: "#263b96",
       color: "#fff",
-      fontSize: "13px",
+      fontSize: "12px",
       fontWeight: "700",
       letterSpacing: "0.6px",
       textTransform: "uppercase",
@@ -85,13 +87,13 @@ const Navbar = () => {
     },
 
     portalBtn: {
-      width: "190px",
+      width: "155px",
       height: "40px",
       border: "none",
       borderRadius: "25px",
       background: "#ffc400",
       color: "#fff",
-      fontSize: "13px",
+      fontSize: "12px",
       fontWeight: "700",
       letterSpacing: "0.6px",
       textTransform: "uppercase",
@@ -168,6 +170,9 @@ const Navbar = () => {
 
           <NavLink to="/contact" className="nav-link" style={navLinkStyle}>
             Contact Us
+          </NavLink>
+           <NavLink to="/branch" className="nav-link" style={navLinkStyle}>
+            Branch Finder
           </NavLink>
         </nav>
 

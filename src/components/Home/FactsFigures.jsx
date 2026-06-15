@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-
+import Image from "../../../public/images/factsimage.png"
 const clamp = (v, min, max) => Math.min(Math.max(v, min), max);
 
 const FactsFigures = () => {
@@ -171,7 +171,7 @@ const FactsFigures = () => {
   return (
     <section ref={ref} style={styles.section}>
       <img
-        src="https://abctransport.co.in/images/FACTS%20&%20FIGURES%201366X600.jpg"
+        src={Image}
         alt="Facts"
         style={styles.bg}
       />

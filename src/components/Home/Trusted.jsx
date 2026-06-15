@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-
+import Image1 from "../../../public/images/TrustedSection.png"
 const TrustedSection = () => {
   const sectionRef = useRef(null);
   const [show, setShow] = useState(false);
@@ -82,7 +82,7 @@ const TrustedSection = () => {
     <section ref={sectionRef} style={styles.section}>
       <div style={styles.left}>
         <img
-          src="https://abctransport.co.in/images/TRUCK.png"
+          src={Image1}
           alt="ABC Truck"
           style={styles.truck}
         />

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import logo from "../../public/images/asiamasterlogo.png"
+import logo from "../../../public/images/asiamasterlogo.png"
 const Footer = () => {
   const ref = useRef(null);
   const [show, setShow] = useState(false);

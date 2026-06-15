@@ -5,7 +5,8 @@ import PTL from "./pages/PTL"
 import FTL from "./pages/FTL"
 import Career from "./pages/Career"
 import Contact from "./pages/Contact"
-import Navbar from "./components/Navbar"
+import Navbar from "./components/Header/Navbar"
+import BranchFinder from "./pages/BranchFinder";
 function App() {
   return (
     <BrowserRouter>
@@ -15,8 +16,9 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/ptl" element={<PTL/>} />
         <Route path="/ftl" element={<FTL/>} />
-        <Route path="/carrer" element={<Career/>} />
+        <Route path="/career" element={<Career/>} />
         <Route path="/contact" element={<Contact/>} />
+        <Route path="/branch" element={<BranchFinder/>} />
         
         
       </Routes>

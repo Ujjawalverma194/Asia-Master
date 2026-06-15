@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-
+import Image from "../../../public/images/ptlsectionimage.png"
 const clamp = (v, min, max) => Math.min(Math.max(v, min), max);
 const easeOut = (t) => 1 - Math.pow(1 - t, 3);
 
@@ -142,7 +142,7 @@ const PTLSection = () => {
     <section ref={ref} style={styles.section}>
       <div style={styles.left}>
         <img
-          src="https://abctransport.co.in/images/Full%20Truck%20Load%20&%20Part%20Truck%20Load.jpg"
+          src={Image}
           alt="Parchoon PTL"
           style={styles.image}
         />

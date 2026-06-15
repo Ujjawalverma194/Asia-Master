@@ -1,13 +1,13 @@
 import React from 'react'
-import Hero from '../components/Hero'
-import Trusted from '../components/Trusted'
-import FTLSection from '../components/FTLSection'
-import PTLSection from '../components/PTLSection'
-import ServiceGlance from '../components/ServiceGlance'
-import FactsFigures from '../components/FactsFigures'
-import  CustomersSection from '../components/CustomersSection'
-import RecentBlogs from '../components/RecentBlogs'
-import Footer from '../components/Footer'
+import Hero from '../components/Home/Hero'
+import Trusted from '../components/Home/Trusted'
+import FTLSection from '../components/Home/FTLSection'
+import PTLSection from '../components/Home/PTLSection'
+import ServiceGlance from '../components/Home/ServiceGlance'
+import FactsFigures from '../components/Home/FactsFigures'
+import  CustomersSection from '../components/Home/CustomersSection'
+import RecentBlogs from '../components/Home/RecentBlogs'
+import Footer from '../components/Footer/Footer'
 
 const Home = () => {
   return (
