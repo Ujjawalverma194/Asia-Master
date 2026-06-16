@@ -197,24 +197,125 @@ const ServiceGlance = () => {
   };
 
   return (
-    <section ref={sectionRef} style={styles.section}>
+    <section ref={sectionRef} className="service-glance" style={styles.section}>
+      <style>
+        {`
+          @media (max-width: 1024px) {
+            .service-glance {
+              padding: 95px 45px 105px !important;
+            }
+
+            .service-grid {
+              grid-template-columns: repeat(2, 1fr) !important;
+              gap: 26px !important;
+            }
+
+            .service-title {
+              font-size: 40px !important;
+            }
+          }
+
+          @media (max-width: 768px) {
+            .service-glance {
+              padding: 70px 20px 80px !important;
+            }
+
+            .service-header {
+              margin-bottom: 45px !important;
+            }
+
+            .service-title {
+              font-size: 38px !important;
+              line-height: 1.2 !important;
+              margin-bottom: 18px !important;
+            }
+
+            .service-subtitle {
+              font-size: 17px !important;
+              line-height: 1.6 !important;
+              max-width: 280px !important;
+              margin: 0 auto !important;
+            }
+
+            .service-grid {
+              grid-template-columns: 1fr !important;
+              gap: 32px !important;
+            }
+
+            .service-card {
+              min-height: auto !important;
+              padding: 34px 24px 36px !important;
+              border-radius: 14px !important;
+            }
+
+            .service-icon-wrap {
+              width: 78px !important;
+              height: 78px !important;
+              margin-bottom: 22px !important;
+              border-radius: 18px !important;
+            }
+
+            .service-icon {
+              width: 52px !important;
+              height: 52px !important;
+            }
+
+            .service-card-title {
+              font-size: 24px !important;
+              line-height: 1.35 !important;
+              margin-bottom: 18px !important;
+            }
+
+            .service-text {
+              font-size: 18px !important;
+              line-height: 1.55 !important;
+            }
+          }
+
+          @media (max-width: 480px) {
+            .service-glance {
+              padding: 62px 20px 70px !important;
+            }
+
+            .service-title {
+              font-size: 36px !important;
+            }
+
+            .service-card {
+              padding: 32px 22px 34px !important;
+            }
+
+            .service-card-title {
+              font-size: 23px !important;
+            }
+
+            .service-text {
+              font-size: 18px !important;
+            }
+          }
+        `}
+      </style>
+
       <div style={styles.softBg}></div>
 
-      <div style={styles.header}>
-        <h2 style={styles.title}>Service at a Glance</h2>
-        <p style={styles.subtitle}>
+      <div className="service-header" style={styles.header}>
+        <h2 className="service-title" style={styles.title}>
+          Service at a Glance
+        </h2>
+        <p className="service-subtitle" style={styles.subtitle}>
           End-to-end logistics solutions designed for speed, safety, and
           reliability.
         </p>
       </div>
 
-      <div style={styles.grid}>
+      <div className="service-grid" style={styles.grid}>
         {services.map((item, index) => {
           const active = hovered === index;
 
           return (
             <div
               key={index}
+              className="service-card"
               style={styles.card(index)}
               onMouseEnter={() => setHovered(index)}
               onMouseLeave={() => setHovered(null)}
@@ -222,12 +323,21 @@ const ServiceGlance = () => {
               <div style={styles.topLine(active)}></div>
               <div style={styles.shine(active)}></div>
 
-              <div style={styles.iconWrap(active)}>
-                <img src={item.icon} alt={item.title} style={styles.icon} />
+              <div className="service-icon-wrap" style={styles.iconWrap(active)}>
+                <img
+                  className="service-icon"
+                  src={item.icon}
+                  alt={item.title}
+                  style={styles.icon}
+                />
               </div>
 
-              <h3 style={styles.cardTitle}>{item.title}</h3>
-              <p style={styles.text}>{item.text}</p>
+              <h3 className="service-card-title" style={styles.cardTitle}>
+                {item.title}
+              </h3>
+              <p className="service-text" style={styles.text}>
+                {item.text}
+              </p>
             </div>
           );
         })}

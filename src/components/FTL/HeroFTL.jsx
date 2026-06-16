@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
-import Image from "../../../public/images/ftlsection.png"
+import Image from "../../../public/images/ftlsection.png";
+
 const HeroFTL = () => {
   const ref = useRef(null);
   const [show, setShow] = useState(false);
@@ -238,7 +239,7 @@ const HeroFTL = () => {
   };
 
   return (
-    <section ref={ref} style={styles.section}>
+    <section ref={ref} className="ftl-section" style={styles.section}>
       <style>
         {`
           .ftl-primary:hover {
@@ -257,38 +258,179 @@ const HeroFTL = () => {
             border-color: rgba(255,196,0,.75) !important;
             box-shadow: 0 20px 40px rgba(38,59,150,.10) !important;
           }
+
+          @media (max-width: 1200px) {
+            .ftl-section {
+              padding: 130px 55px 80px !important;
+            }
+
+            .ftl-wrapper {
+              gap: 50px !important;
+            }
+
+            .ftl-title {
+              font-size: 48px !important;
+            }
+
+            .ftl-image-card {
+              height: 500px !important;
+            }
+          }
+
+          @media (max-width: 900px) {
+            .ftl-section {
+              padding: 120px 28px 70px !important;
+              min-height: auto !important;
+            }
+
+            .ftl-wrapper {
+              grid-template-columns: 1fr !important;
+              gap: 45px !important;
+            }
+
+            .ftl-title {
+              font-size: 42px !important;
+            }
+
+            .ftl-para {
+              font-size: 16px !important;
+            }
+
+            .ftl-image-area {
+              max-width: 620px !important;
+              width: 100% !important;
+              margin: 0 auto !important;
+            }
+          }
+
+          @media (max-width: 600px) {
+            .ftl-section {
+              padding: 95px 22px 55px !important;
+            }
+
+            .ftl-bg-circle {
+              width: 260px !important;
+              height: 260px !important;
+              right: -130px !important;
+              top: 90px !important;
+            }
+
+            .ftl-eyebrow {
+              font-size: 12px !important;
+              letter-spacing: 2px !important;
+              margin-bottom: 14px !important;
+            }
+
+            .ftl-title {
+              font-size: 36px !important;
+              line-height: 1.18 !important;
+              margin-bottom: 22px !important;
+            }
+
+            .ftl-para {
+              font-size: 15px !important;
+              line-height: 1.65 !important;
+            }
+
+            .ftl-points {
+              grid-template-columns: 1fr !important;
+              gap: 14px !important;
+              margin-top: 28px !important;
+            }
+
+            .ftl-point {
+              padding: 16px !important;
+            }
+
+            .ftl-actions {
+              flex-direction: column !important;
+              align-items: stretch !important;
+              gap: 14px !important;
+              margin-top: 30px !important;
+            }
+
+            .ftl-primary,
+            .ftl-secondary {
+              width: 100% !important;
+              justify-content: center !important;
+            }
+
+            .ftl-image-card {
+              height: 330px !important;
+              border-radius: 20px !important;
+              border-width: 6px !important;
+            }
+
+            .ftl-yellow-shape {
+              width: 110px !important;
+              height: 110px !important;
+              right: -14px !important;
+              top: -14px !important;
+            }
+
+            .ftl-badge {
+              left: 14px !important;
+              bottom: 18px !important;
+              padding: 15px 18px !important;
+              border-radius: 14px !important;
+            }
+
+            .ftl-badge-top {
+              font-size: 22px !important;
+            }
+
+            .ftl-badge-text {
+              font-size: 11px !important;
+            }
+          }
+
+          @media (max-width: 360px) {
+            .ftl-section {
+              padding: 85px 18px 50px !important;
+            }
+
+            .ftl-title {
+              font-size: 32px !important;
+            }
+
+            .ftl-image-card {
+              height: 300px !important;
+            }
+          }
         `}
       </style>
 
-      <div style={styles.bgCircle}></div>
+      <div className="ftl-bg-circle" style={styles.bgCircle}></div>
 
-      <div style={styles.wrapper}>
+      <div className="ftl-wrapper" style={styles.wrapper}>
         <div style={styles.content}>
-          <div style={styles.eyebrow}>Specialist in Import and Export</div>
+          <div className="ftl-eyebrow" style={styles.eyebrow}>
+            Specialist in Import and Export
+          </div>
 
-          <h1 style={styles.title}>
+          <h1 className="ftl-title" style={styles.title}>
             Full Truck <span style={styles.titleAccent}>Load</span>
           </h1>
 
-          <p style={styles.para}>
+          <p className="ftl-para" style={styles.para}>
             Asia Master enables trade through complete full truck load transport
             solutions, helping businesses move bulk cargo safely, directly, and
             efficiently across major routes.
           </p>
 
-          <p style={styles.para}>
+          <p className="ftl-para" style={styles.para}>
             Our strategic presence around key trade hubs and ports supports
             reliable import-export transportation, documentation coordination,
             and smooth port-to-door delivery.
           </p>
 
-          <p style={styles.para}>
+          <p className="ftl-para" style={styles.para}>
             With GPS monitoring, dedicated traffic control, and experienced
             handling teams, we ensure your cargo moves on schedule with complete
             visibility.
           </p>
 
-          <div style={styles.points}>
+          <div className="ftl-points" style={styles.points}>
             {[
               ["01", "Dedicated full vehicle"],
               ["02", "GPS enabled movement"],
@@ -301,7 +443,7 @@ const HeroFTL = () => {
             ))}
           </div>
 
-          <div style={styles.actions}>
+          <div className="ftl-actions" style={styles.actions}>
             <button className="ftl-primary" style={styles.primaryBtn}>
               Get FTL Quote
               <span style={styles.circle}>→</span>
@@ -313,25 +455,26 @@ const HeroFTL = () => {
           </div>
         </div>
 
-        <div style={styles.imageArea}>
-          <div style={styles.yellowShape}></div>
+        <div className="ftl-image-area" style={styles.imageArea}>
+          <div className="ftl-yellow-shape" style={styles.yellowShape}></div>
 
           <div
+            className="ftl-image-card"
             style={styles.imageCard}
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
           >
-            <img
-              src={Image}
-              alt="Asia Master FTL Logistics"
-              style={styles.image}
-            />
+            <img src={Image} alt="Asia Master FTL Logistics" style={styles.image} />
             <div style={styles.overlay}></div>
           </div>
 
-          <div style={styles.badge}>
-            <div style={styles.badgeTop}>FTL</div>
-            <div style={styles.badgeText}>Dedicated truck movement</div>
+          <div className="ftl-badge" style={styles.badge}>
+            <div className="ftl-badge-top" style={styles.badgeTop}>
+              FTL
+            </div>
+            <div className="ftl-badge-text" style={styles.badgeText}>
+              Dedicated truck movement
+            </div>
           </div>
         </div>
       </div>

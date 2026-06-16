@@ -4,29 +4,25 @@ const leaders = [
   {
     name: "Mr. Sukhbir Singh Chhabra",
     role: "Founder & Mentor",
-    image:
-      "https://abctransport.co.in/images/Sukhbir-Singh-Chhabra.jpg",
+    image: "https://abctransport.co.in/images/Sukhbir-Singh-Chhabra.jpg",
     desc: "A true logistics visionary with decades of hands-on experience, deep operational knowledge, and unwavering commitment toward building a trusted and resilient transport organization.",
   },
   {
     name: "Mr. Inder Bir Singh Chhabra",
     role: "Operations Head",
-    image:
-      "https://abctransport.co.in/images/inder-bir-singh.jpg",
+    image: "https://abctransport.co.in/images/inder-bir-singh.jpg",
     desc: "Leading operations with discipline, consistency, and strong customer-first values to ensure every shipment is handled with reliability and care.",
   },
   {
     name: "Mr. Tansher Singh",
     role: "Business Development",
-    image:
-      "https://abctransport.co.in/images/Tansher-Singh.jpg",
+    image: "https://abctransport.co.in/images/Tansher-Singh.jpg",
     desc: "Focused on expanding service reach, strengthening client relationships, and bringing modern logistics practices into everyday operations.",
   },
   {
     name: "Mr. Gyan Pratap Singh",
     role: "Logistics Strategy",
-    image:
-      "https://abctransport.co.in/images/2s.jpg",
+    image: "https://abctransport.co.in/images/2s.jpg",
     desc: "Driving process improvements, route planning, and technology-enabled transport solutions for faster and more dependable service.",
   },
 ];
@@ -198,28 +194,145 @@ const Leaders = () => {
   };
 
   return (
-    <section ref={sectionRef} style={styles.section}>
-      <h2 style={styles.title}>Our Leadership</h2>
+    <section ref={sectionRef} className="leaders-section" style={styles.section}>
+      <style>
+        {`
+          @media (max-width: 1200px) {
+            .leaders-section {
+              padding: 95px 55px 110px !important;
+            }
 
-      <div style={styles.grid}>
+            .leaders-grid {
+              grid-template-columns: repeat(2, 1fr) !important;
+              gap: 28px !important;
+            }
+
+            .leader-card {
+              height: 460px !important;
+            }
+          }
+
+          @media (max-width: 768px) {
+            .leaders-section {
+              padding: 95px 22px 90px !important;
+            }
+
+            .leaders-title {
+              font-size: 38px !important;
+              line-height: 1.2 !important;
+              margin-bottom: 48px !important;
+              text-align: left !important;
+              white-space: nowrap !important;
+            }
+
+            .leaders-grid {
+              display: flex !important;
+              flex-direction: column !important;
+              gap: 28px !important;
+            }
+
+            .leader-card {
+              height: 430px !important;
+              border-radius: 7px !important;
+            }
+
+            .leader-name {
+              font-size: 22px !important;
+              left: 18px !important;
+              bottom: 28px !important;
+              max-width: 230px !important;
+            }
+
+            .leader-overlay {
+              opacity: 0 !important;
+              transform: translateY(28px) !important;
+            }
+          }
+
+          @media (max-width: 480px) {
+            .leaders-section {
+              padding: 92px 21px 80px !important;
+            }
+
+            .leaders-title {
+              font-size: 36px !important;
+              margin-bottom: 46px !important;
+              transform: translateX(0) !important;
+            }
+
+            .leader-card {
+              height: 355px !important;
+              width: 100% !important;
+            }
+
+            .leader-img {
+              object-fit: cover !important;
+              object-position: center top !important;
+            }
+
+            .leader-name {
+              font-size: 20px !important;
+              line-height: 1.45 !important;
+              left: 18px !important;
+              right: 18px !important;
+              bottom: 26px !important;
+              max-width: 250px !important;
+              opacity: 1 !important;
+              transform: translateY(0) !important;
+            }
+          }
+
+          @media (max-width: 360px) {
+            .leaders-section {
+              padding: 90px 20px 75px !important;
+            }
+
+            .leaders-title {
+              font-size: 34px !important;
+            }
+
+            .leader-card {
+              height: 348px !important;
+            }
+
+            .leader-name {
+              font-size: 20px !important;
+            }
+          }
+        `}
+      </style>
+
+      <h2 className="leaders-title" style={styles.title}>
+        Our Leadership
+      </h2>
+
+      <div className="leaders-grid" style={styles.grid}>
         {leaders.map((leader, index) => {
           const active = hovered === index;
 
           return (
             <div
               key={index}
+              className="leader-card"
               style={styles.card(index)}
               onMouseEnter={() => setHovered(index)}
               onMouseLeave={() => setHovered(null)}
             >
-              <img src={leader.image} alt={leader.name} style={styles.image(active)} />
+              <img
+                className="leader-img"
+                src={leader.image}
+                alt={leader.name}
+                style={styles.image(active)}
+              />
 
               <div style={styles.bottomGradient}></div>
               <div style={styles.shine(active)}></div>
 
-              <h3 style={styles.name(active)}>{leader.name}</h3>
+              <h3 className="leader-name" style={styles.name(active)}>
+                {leader.name}
+              </h3>
 
-              <div style={styles.overlay(active)}>
+              <div className="leader-overlay" style={styles.overlay(active)}>
                 <div style={styles.overlayName}>{leader.name}</div>
                 <div style={styles.role}>{leader.role}</div>
                 <p style={styles.desc}>{leader.desc}</p>

@@ -1,5 +1,5 @@
 import React from 'react'
-
+import HeroBranch from "../components/BranchFinder/HeroBranch"
 const BranchFinder = () => {
   return (
         <main
@@ -9,7 +9,7 @@ const BranchFinder = () => {
         background: "#fff",
       }}
     >
-     <h1>Branch Finder</h1>
+     <HeroBranch/>
     </main>
   )
 }

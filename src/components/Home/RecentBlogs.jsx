@@ -18,8 +18,7 @@ const blogs = [
     image:
       "https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=900&q=90",
     tag: "Goods transport services",
-    title:
-      "Goods Transport Services in India: Local & Interstate Solutions",
+    title: "Goods Transport Services in India: Local & Interstate Solutions",
   },
 ];
 
@@ -203,41 +202,163 @@ const RecentBlogs = () => {
   };
 
   return (
-    <section ref={sectionRef} style={styles.section}>
-      <div style={styles.top}>
-        <h2 style={styles.heading}>
+    <section ref={sectionRef} className="recent-blogs" style={styles.section}>
+      <style>
+        {`
+          .recent-blog-btn:hover .recent-blog-arrow {
+            transform: translateX(4px);
+          }
+
+          @media (max-width: 1100px) {
+            .recent-blogs {
+              padding: 95px 45px 105px !important;
+            }
+
+            .recent-blogs-grid {
+              grid-template-columns: repeat(2, 1fr) !important;
+            }
+
+            .recent-blog-heading {
+              font-size: 42px !important;
+            }
+          }
+
+          @media (max-width: 768px) {
+            .recent-blogs {
+              padding: 72px 22px 85px !important;
+            }
+
+            .recent-blogs-top {
+              display: block !important;
+              margin-bottom: 34px !important;
+            }
+
+            .recent-blog-heading {
+              font-size: 38px !important;
+              line-height: 1.24 !important;
+              margin-bottom: 34px !important;
+            }
+
+            .recent-blog-btn {
+              height: 52px !important;
+              min-width: 190px !important;
+              width: fit-content !important;
+              padding-left: 24px !important;
+              font-size: 15px !important;
+            }
+
+            .recent-blogs-grid {
+              grid-template-columns: 1fr !important;
+              gap: 32px !important;
+            }
+
+            .recent-blog-card {
+              min-height: auto !important;
+              padding: 26px !important;
+              border-radius: 20px !important;
+            }
+
+            .recent-blog-image-wrap {
+              height: 184px !important;
+              border-radius: 14px !important;
+              margin-bottom: 24px !important;
+            }
+
+            .recent-blog-title {
+              font-size: 22px !important;
+              line-height: 1.38 !important;
+              margin-bottom: 42px !important;
+            }
+
+            .recent-blog-tag {
+              font-size: 12px !important;
+              left: 12px !important;
+              bottom: 12px !important;
+            }
+
+            .recent-blog-bottom {
+              gap: 16px !important;
+            }
+
+            .recent-blog-read {
+              font-size: 16px !important;
+              line-height: 1.35 !important;
+              white-space: normal !important;
+              max-width: 60px !important;
+            }
+          }
+
+          @media (max-width: 480px) {
+            .recent-blogs {
+              padding: 66px 21px 76px !important;
+            }
+
+            .recent-blog-heading {
+              font-size: 37px !important;
+            }
+
+            .recent-blog-card {
+              padding: 25px 24px !important;
+            }
+
+            .recent-blog-image-wrap {
+              height: 183px !important;
+            }
+
+            .recent-blog-title {
+              font-size: 22px !important;
+            }
+          }
+        `}
+      </style>
+
+      <div className="recent-blogs-top" style={styles.top}>
+        <h2 className="recent-blog-heading" style={styles.heading}>
           Our Recent <br />
           Blogs
         </h2>
 
-        <button style={styles.viewBtn}>
+        <button className="recent-blog-btn" style={styles.viewBtn}>
           View All Post
-          <span style={styles.btnCircle}>→</span>
+          <span className="recent-blog-arrow" style={styles.btnCircle}>
+            →
+          </span>
         </button>
       </div>
 
-      <div style={styles.grid}>
+      <div className="recent-blogs-grid" style={styles.grid}>
         {blogs.map((blog, index) => {
           const active = hovered === index;
 
           return (
             <article
               key={index}
+              className="recent-blog-card"
               style={styles.card(index)}
               onMouseEnter={() => setHovered(index)}
               onMouseLeave={() => setHovered(null)}
             >
-              <div style={styles.imageWrap}>
-                <img src={blog.image} alt={blog.title} style={styles.image(active)} />
+              <div className="recent-blog-image-wrap" style={styles.imageWrap}>
+                <img
+                  src={blog.image}
+                  alt={blog.title}
+                  style={styles.image(active)}
+                />
                 <div style={styles.imageOverlay}></div>
-                <div style={styles.tag}>{blog.tag}</div>
+                <div className="recent-blog-tag" style={styles.tag}>
+                  {blog.tag}
+                </div>
               </div>
 
-              <h3 style={styles.title(active)}>{blog.title}</h3>
+              <h3 className="recent-blog-title" style={styles.title(active)}>
+                {blog.title}
+              </h3>
 
-              <div style={styles.bottom}>
+              <div className="recent-blog-bottom" style={styles.bottom}>
                 <div style={styles.line}></div>
-                <span style={styles.read(active)}>Read More</span>
+                <span className="recent-blog-read" style={styles.read(active)}>
+                  Read More
+                </span>
               </div>
             </article>
           );

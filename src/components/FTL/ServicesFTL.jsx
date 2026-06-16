@@ -192,32 +192,143 @@ const ServicesFTL = () => {
   };
 
   return (
-    <section ref={ref} style={styles.section}>
-      <h2 style={styles.title}>Why Choose Asia Master Logistics Services</h2>
+    <section ref={ref} className="services-ftl-section" style={styles.section}>
+      <style>
+        {`
+          @media (max-width: 1200px) {
+            .services-ftl-section {
+              padding: 100px 55px 110px !important;
+            }
 
-      <p style={styles.subtitle}>
+            .services-ftl-title {
+              font-size: 40px !important;
+            }
+
+            .services-ftl-grid {
+              grid-template-columns: repeat(2, 1fr) !important;
+              gap: 26px !important;
+            }
+          }
+
+          @media (max-width: 768px) {
+            .services-ftl-section {
+              padding: 85px 28px 90px !important;
+            }
+
+            .services-ftl-title {
+              font-size: 36px !important;
+              line-height: 1.25 !important;
+              margin-bottom: 18px !important;
+            }
+
+            .services-ftl-subtitle {
+              font-size: 16px !important;
+              line-height: 1.6 !important;
+              margin-bottom: 52px !important;
+            }
+
+            .services-ftl-grid {
+              grid-template-columns: 1fr !important;
+              gap: 26px !important;
+            }
+
+            .services-ftl-card {
+              min-height: auto !important;
+              padding: 34px 26px 38px !important;
+            }
+          }
+
+          @media (max-width: 480px) {
+            .services-ftl-section {
+              padding: 78px 20px 80px !important;
+            }
+
+            .services-ftl-title {
+              font-size: 32px !important;
+              line-height: 1.28 !important;
+            }
+
+            .services-ftl-subtitle {
+              font-size: 15px !important;
+              margin-bottom: 44px !important;
+            }
+
+            .services-ftl-card {
+              border-radius: 18px !important;
+              padding: 30px 22px 34px !important;
+            }
+
+            .services-ftl-icon {
+              width: 86px !important;
+              height: 86px !important;
+              font-size: 34px !important;
+              margin-bottom: 22px !important;
+            }
+
+            .services-ftl-card-title {
+              font-size: 21px !important;
+              line-height: 1.35 !important;
+            }
+
+            .services-ftl-text {
+              font-size: 15px !important;
+              line-height: 1.6 !important;
+            }
+          }
+
+          @media (max-width: 360px) {
+            .services-ftl-section {
+              padding: 70px 18px 72px !important;
+            }
+
+            .services-ftl-title {
+              font-size: 29px !important;
+            }
+
+            .services-ftl-card {
+              padding: 28px 18px 32px !important;
+            }
+          }
+        `}
+      </style>
+
+      <h2 className="services-ftl-title" style={styles.title}>
+        Why Choose Asia Master Logistics Services
+      </h2>
+
+      <p className="services-ftl-subtitle" style={styles.subtitle}>
         Comprehensive logistics solutions tailored to your business needs with
         smart technology and experienced professionals
       </p>
 
-      <div style={styles.grid}>
+      <div className="services-ftl-grid" style={styles.grid}>
         {features.map((item, index) => {
           const active = hovered === index;
 
           return (
             <div
               key={index}
+              className="services-ftl-card"
               style={styles.card(index)}
               onMouseEnter={() => setHovered(index)}
               onMouseLeave={() => setHovered(null)}
             >
               <div style={styles.glow(active)}></div>
 
-              <div style={styles.iconWrap(active)}>{item.icon}</div>
+              <div className="services-ftl-icon" style={styles.iconWrap(active)}>
+                {item.icon}
+              </div>
 
-              <h3 style={styles.cardTitle(active)}>{item.title}</h3>
+              <h3
+                className="services-ftl-card-title"
+                style={styles.cardTitle(active)}
+              >
+                {item.title}
+              </h3>
 
-              <p style={styles.text(active)}>{item.text}</p>
+              <p className="services-ftl-text" style={styles.text(active)}>
+                {item.text}
+              </p>
 
               <div style={styles.bottomLine(active)}></div>
             </div>

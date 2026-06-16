@@ -45,295 +45,410 @@ const Industries = () => {
     return () => observer.disconnect();
   }, []);
 
-  const styles = {
-    section: {
-      width: "100%",
-      background: "linear-gradient(180deg, #ffffff 0%, #f8f8f8 100%)",
-      padding: "110px 95px 115px",
-      boxSizing: "border-box",
-      fontFamily: "'Montserrat', Arial, sans-serif",
-      overflow: "hidden",
-      position: "relative",
-    },
-
-    glow: {
-      position: "absolute",
-      left: "-120px",
-      top: "80px",
-      width: "310px",
-      height: "310px",
-      borderRadius: "50%",
-      background: "rgba(255,196,0,0.12)",
-      filter: "blur(50px)",
-    },
-
-    wrapper: {
-      maxWidth: "1500px",
-      margin: "0 auto",
-      position: "relative",
-      zIndex: 2,
-    },
-
-    topGrid: {
-      display: "grid",
-      gridTemplateColumns: "0.9fr 1.1fr",
-      gap: "70px",
-      alignItems: "start",
-      marginBottom: "75px",
-    },
-
-    card: (delay) => ({
-      background: "#fff",
-      borderRadius: "26px",
-      padding: "44px",
-      boxSizing: "border-box",
-      boxShadow: "0 18px 48px rgba(0,0,0,0.06)",
-      border: "1px solid rgba(0,0,0,0.05)",
-      opacity: show ? 1 : 0,
-      transform: show ? "translateY(0)" : "translateY(70px)",
-      transition: `all .85s cubic-bezier(.22,1,.36,1) ${delay}s`,
-    }),
-
-    heading: {
-      fontSize: "34px",
-      lineHeight: "1.25",
-      fontWeight: "700",
-      color: "#090909",
-      margin: "0 0 26px",
-    },
-
-    subText: {
-      fontSize: "17px",
-      lineHeight: "1.65",
-      fontWeight: "500",
-      color: "#222",
-      margin: "0 0 22px",
-    },
-
-    industryGrid: {
-      display: "grid",
-      gridTemplateColumns: "repeat(2, 1fr)",
-      gap: "14px",
-      marginTop: "28px",
-    },
-
-    industryItem: {
-      background: "#f7f8fb",
-      borderRadius: "14px",
-      padding: "14px 16px",
-      display: "flex",
-      alignItems: "center",
-      gap: "12px",
-      color: "#1f1f1f",
-      fontSize: "15px",
-      fontWeight: "600",
-      transition: "all .3s ease",
-      border: "1px solid transparent",
-    },
-
-    bullet: {
-      width: "9px",
-      height: "9px",
-      borderRadius: "50%",
-      background: "#ffc400",
-      flexShrink: 0,
-    },
-
-    stepsGrid: {
-      display: "grid",
-      gridTemplateColumns: "repeat(2, 1fr)",
-      gap: "18px",
-      marginTop: "8px",
-    },
-
-    step: (index) => {
-      const active = hoveredStep === index;
-
-      return {
-        background: active
-          ? "linear-gradient(135deg, #263b96 0%, #2aa9e6 100%)"
-          : "#f7f8fb",
-        borderRadius: "18px",
-        padding: "24px",
-        border: active
-          ? "1px solid rgba(255,196,0,0.75)"
-          : "1px solid rgba(38,59,150,0.08)",
-        boxShadow: active
-          ? "0 22px 42px rgba(38,59,150,.18)"
-          : "none",
-        transform: active ? "translateY(-7px)" : "translateY(0)",
-        transition: "all .35s ease",
-        cursor: "pointer",
-      };
-    },
-
-    stepNo: (active) => ({
-      width: "40px",
-      height: "40px",
-      borderRadius: "50%",
-      background: active ? "#ffc400" : "#263b96",
-      color: active ? "#263b96" : "#fff",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      fontSize: "15px",
-      fontWeight: "800",
-      marginBottom: "14px",
-    }),
-
-    stepTitle: (active) => ({
-      fontSize: "17px",
-      fontWeight: "750",
-      color: active ? "#fff" : "#111",
-      margin: "0 0 8px",
-    }),
-
-    stepText: (active) => ({
-      fontSize: "14px",
-      lineHeight: "1.6",
-      color: active ? "rgba(255,255,255,.9)" : "#444",
-      margin: 0,
-      fontWeight: "500",
-    }),
-
-    cta: {
-      background:
-        "linear-gradient(135deg, #263b96 0%, #1f3a91 60%, #173079 100%)",
-      borderRadius: "28px",
-      padding: "42px 48px",
-      color: "#fff",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "space-between",
-      gap: "40px",
-      boxShadow: "0 24px 55px rgba(38,59,150,.22)",
-      opacity: show ? 1 : 0,
-      transform: show ? "translateY(0)" : "translateY(70px)",
-      transition: "all .85s cubic-bezier(.22,1,.36,1) .22s",
-      position: "relative",
-      overflow: "hidden",
-    },
-
-    ctaTitle: {
-      fontSize: "34px",
-      lineHeight: "1.25",
-      fontWeight: "700",
-      margin: "0 0 14px",
-    },
-
-    ctaText: {
-      fontSize: "16px",
-      lineHeight: "1.65",
-      fontWeight: "500",
-      color: "rgba(255,255,255,.82)",
-      margin: 0,
-      maxWidth: "930px",
-    },
-
-    phone: {
-      color: "#ffc400",
-      fontWeight: "800",
-      textDecoration: "none",
-    },
-
-    btn: {
-      height: "54px",
-      minWidth: "180px",
-      borderRadius: "34px",
-      border: "none",
-      background: "#ffc400",
-      color: "#111",
-      fontSize: "15px",
-      fontWeight: "750",
-      cursor: "pointer",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      gap: "14px",
-      boxShadow: "0 16px 35px rgba(255,196,0,.3)",
-      transition: "all .3s ease",
-      flexShrink: 0,
-    },
-  };
-
   return (
-    <section ref={ref} style={styles.section}>
-      <style>
-        {`
-          .industry-item:hover {
-            background: #fff8dc !important;
-            border-color: rgba(255,196,0,.75) !important;
-            transform: translateX(6px);
+    <section ref={ref} className="ptl-industries">
+      <style>{`
+        .ptl-industries {
+          width: 100%;
+          background: linear-gradient(180deg, #ffffff 0%, #f8f8f8 100%);
+          padding: 110px 95px 115px;
+          box-sizing: border-box;
+          font-family: 'Montserrat', Arial, sans-serif;
+          overflow: hidden;
+          position: relative;
+        }
+
+        .ptl-industries-glow {
+          position: absolute;
+          left: -120px;
+          top: 80px;
+          width: 310px;
+          height: 310px;
+          border-radius: 50%;
+          background: rgba(255,196,0,0.12);
+          filter: blur(50px);
+        }
+
+        .ptl-industries-wrapper {
+          max-width: 1500px;
+          margin: 0 auto;
+          position: relative;
+          z-index: 2;
+        }
+
+        .ptl-industries-top {
+          display: grid;
+          grid-template-columns: 0.9fr 1.1fr;
+          gap: 70px;
+          align-items: start;
+          margin-bottom: 75px;
+        }
+
+        .ptl-info-card {
+          background: #fff;
+          border-radius: 26px;
+          padding: 44px;
+          box-sizing: border-box;
+          box-shadow: 0 18px 48px rgba(0,0,0,0.06);
+          border: 1px solid rgba(0,0,0,0.05);
+          opacity: ${show ? 1 : 0};
+          transform: ${show ? "translateY(0)" : "translateY(70px)"};
+          transition: all .85s cubic-bezier(.22,1,.36,1);
+        }
+
+        .ptl-info-card.second {
+          transition-delay: .12s;
+        }
+
+        .ptl-heading {
+          font-size: 34px;
+          line-height: 1.25;
+          font-weight: 700;
+          color: #090909;
+          margin: 0 0 26px;
+        }
+
+        .ptl-subtext {
+          font-size: 17px;
+          line-height: 1.65;
+          font-weight: 500;
+          color: #222;
+          margin: 0 0 22px;
+        }
+
+        .ptl-industry-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 14px;
+          margin-top: 28px;
+        }
+
+        .industry-item {
+          background: #f7f8fb;
+          border-radius: 14px;
+          padding: 14px 16px;
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          color: #1f1f1f;
+          font-size: 15px;
+          font-weight: 600;
+          transition: all .3s ease;
+          border: 1px solid transparent;
+        }
+
+        .industry-item:hover {
+          background: #fff8dc;
+          border-color: rgba(255,196,0,.75);
+          transform: translateX(6px);
+        }
+
+        .industry-bullet {
+          width: 9px;
+          height: 9px;
+          border-radius: 50%;
+          background: #ffc400;
+          flex-shrink: 0;
+        }
+
+        .ptl-steps-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 18px;
+          margin-top: 8px;
+        }
+
+        .ptl-step {
+          background: #f7f8fb;
+          border-radius: 18px;
+          padding: 24px;
+          border: 1px solid rgba(38,59,150,0.08);
+          transition: all .35s ease;
+          cursor: pointer;
+        }
+
+        .ptl-step.active {
+          background: linear-gradient(135deg, #263b96 0%, #2aa9e6 100%);
+          border-color: rgba(255,196,0,0.75);
+          box-shadow: 0 22px 42px rgba(38,59,150,.18);
+          transform: translateY(-7px);
+        }
+
+        .ptl-step-no {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background: #263b96;
+          color: #fff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 15px;
+          font-weight: 800;
+          margin-bottom: 14px;
+        }
+
+        .ptl-step.active .ptl-step-no {
+          background: #ffc400;
+          color: #263b96;
+        }
+
+        .ptl-step-title {
+          font-size: 17px;
+          font-weight: 750;
+          color: #111;
+          margin: 0 0 8px;
+        }
+
+        .ptl-step.active .ptl-step-title {
+          color: #fff;
+        }
+
+        .ptl-step-text {
+          font-size: 14px;
+          line-height: 1.6;
+          color: #444;
+          margin: 0;
+          font-weight: 500;
+        }
+
+        .ptl-step.active .ptl-step-text {
+          color: rgba(255,255,255,.9);
+        }
+
+        .ptl-cta {
+          background: linear-gradient(135deg, #263b96 0%, #1f3a91 60%, #173079 100%);
+          border-radius: 28px;
+          padding: 42px 48px;
+          color: #fff;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 40px;
+          box-shadow: 0 24px 55px rgba(38,59,150,.22);
+          opacity: ${show ? 1 : 0};
+          transform: ${show ? "translateY(0)" : "translateY(70px)"};
+          transition: all .85s cubic-bezier(.22,1,.36,1) .22s;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .ptl-cta-title {
+          font-size: 34px;
+          line-height: 1.25;
+          font-weight: 700;
+          margin: 0 0 14px;
+        }
+
+        .ptl-cta-text {
+          font-size: 16px;
+          line-height: 1.65;
+          font-weight: 500;
+          color: rgba(255,255,255,.82);
+          margin: 0;
+          max-width: 930px;
+        }
+
+        .ptl-phone {
+          color: #ffc400;
+          font-weight: 800;
+          text-decoration: none;
+        }
+
+        .ptl-cta-btn {
+          height: 54px;
+          min-width: 180px;
+          border-radius: 34px;
+          border: none;
+          background: #ffc400;
+          color: #111;
+          font-size: 15px;
+          font-weight: 750;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 14px;
+          box-shadow: 0 16px 35px rgba(255,196,0,.3);
+          transition: all .3s ease;
+          flex-shrink: 0;
+        }
+
+        .ptl-cta-btn:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 22px 42px rgba(255,196,0,.38);
+        }
+
+        @media (max-width: 1024px) {
+          .ptl-industries {
+            padding: 95px 45px 100px;
           }
 
-          .ptl-cta-btn:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 22px 42px rgba(255,196,0,.38) !important;
+          .ptl-industries-top {
+            grid-template-columns: 1fr;
+            gap: 34px;
+            margin-bottom: 50px;
           }
-        `}
-      </style>
 
-      <div style={styles.glow}></div>
+          .ptl-cta {
+            align-items: flex-start;
+            flex-direction: column;
+          }
+        }
 
-      <div style={styles.wrapper}>
-        <div style={styles.topGrid}>
-          <div style={styles.card(0)}>
-            <h2 style={styles.heading}>Industries We Serve</h2>
-            <p style={styles.subText}>
+        @media (max-width: 600px) {
+          .ptl-industries {
+            padding: 72px 20px 80px;
+          }
+
+          .ptl-industries-glow {
+            width: 220px;
+            height: 220px;
+            left: -100px;
+            top: 40px;
+          }
+
+          .ptl-industries-top {
+            gap: 28px;
+            margin-bottom: 38px;
+          }
+
+          .ptl-info-card {
+            border-radius: 18px;
+            padding: 28px 22px;
+          }
+
+          .ptl-heading {
+            font-size: 31px;
+            line-height: 1.25;
+            margin-bottom: 18px;
+          }
+
+          .ptl-subtext {
+            font-size: 17px;
+            line-height: 1.55;
+          }
+
+          .ptl-industry-grid {
+            grid-template-columns: 1fr;
+            gap: 13px;
+          }
+
+          .industry-item {
+            font-size: 16px;
+            line-height: 1.35;
+            padding: 15px 15px;
+          }
+
+          .ptl-steps-grid {
+            grid-template-columns: 1fr;
+            gap: 16px;
+          }
+
+          .ptl-step {
+            padding: 22px;
+          }
+
+          .ptl-step.active {
+            transform: translateY(0);
+          }
+
+          .ptl-step-title {
+            font-size: 18px;
+          }
+
+          .ptl-step-text {
+            font-size: 15px;
+            line-height: 1.55;
+          }
+
+          .ptl-cta {
+            border-radius: 20px;
+            padding: 30px 24px;
+            gap: 24px;
+          }
+
+          .ptl-cta-title {
+            font-size: 30px;
+            line-height: 1.25;
+          }
+
+          .ptl-cta-text {
+            font-size: 16px;
+            line-height: 1.6;
+          }
+
+          .ptl-cta-btn {
+            width: 100%;
+            height: 52px;
+          }
+        }
+      `}</style>
+
+      <div className="ptl-industries-glow"></div>
+
+      <div className="ptl-industries-wrapper">
+        <div className="ptl-industries-top">
+          <div className="ptl-info-card">
+            <h2 className="ptl-heading">Industries We Serve</h2>
+
+            <p className="ptl-subtext">
               Our part-load truck services are built for businesses that need
               safe, regular, and scalable cargo movement.
             </p>
 
-            <div style={styles.industryGrid}>
+            <div className="ptl-industry-grid">
               {industries.map((item) => (
-                <div key={item} className="industry-item" style={styles.industryItem}>
-                  <span style={styles.bullet}></span>
+                <div key={item} className="industry-item">
+                  <span className="industry-bullet"></span>
                   {item}
                 </div>
               ))}
             </div>
           </div>
 
-          <div style={styles.card(0.12)}>
-            <h2 style={styles.heading}>How PTL Works with Asia Master</h2>
+          <div className="ptl-info-card second">
+            <h2 className="ptl-heading">How PTL Works with Asia Master</h2>
 
-            <div style={styles.stepsGrid}>
-              {steps.map((step, index) => {
-                const active = hoveredStep === index;
-
-                return (
-                  <div
-                    key={index}
-                    style={styles.step(index)}
-                    onMouseEnter={() => setHoveredStep(index)}
-                    onMouseLeave={() => setHoveredStep(null)}
-                  >
-                    <div style={styles.stepNo(active)}>
-                      {String(index + 1).padStart(2, "0")}
-                    </div>
-                    <h3 style={styles.stepTitle(active)}>{step.title}</h3>
-                    <p style={styles.stepText(active)}>{step.text}</p>
+            <div className="ptl-steps-grid">
+              {steps.map((step, index) => (
+                <div
+                  key={index}
+                  className={`ptl-step ${
+                    hoveredStep === index ? "active" : ""
+                  }`}
+                  onMouseEnter={() => setHoveredStep(index)}
+                  onMouseLeave={() => setHoveredStep(null)}
+                >
+                  <div className="ptl-step-no">
+                    {String(index + 1).padStart(2, "0")}
                   </div>
-                );
-              })}
+
+                  <h3 className="ptl-step-title">{step.title}</h3>
+                  <p className="ptl-step-text">{step.text}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
 
-        <div style={styles.cta}>
+        <div className="ptl-cta">
           <div>
-            <h2 style={styles.ctaTitle}>Book Part Truck Load Services Today!</h2>
-            <p style={styles.ctaText}>
+            <h2 className="ptl-cta-title">
+              Book Part Truck Load Services Today!
+            </h2>
+
+            <p className="ptl-cta-text">
               Asia Master ensures hassle-free PTL bookings, optimized transit
               times, and safe deliveries. Get a free quote now or call{" "}
-              <a href="tel:+917065001053" style={styles.phone}>
+              <a href="tel:+917065001053" className="ptl-phone">
                 +91-7065001053
               </a>{" "}
               for expert logistics support.
             </p>
           </div>
 
-          <button className="ptl-cta-btn" style={styles.btn}>
+          <button className="ptl-cta-btn">
             Get Quote <span>→</span>
           </button>
         </div>
