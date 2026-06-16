@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import Image from "../../../public/images/aboutsection.png";
+import Image from "../../assets/images/aboutsection.png";
 
 const milestones = [
   {

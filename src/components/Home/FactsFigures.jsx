@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import Image from "../../../public/images/factsimage.png";
+import Image from "../../assets/images/factsimage.png";
 
 const clamp = (v, min, max) => Math.min(Math.max(v, min), max);
 

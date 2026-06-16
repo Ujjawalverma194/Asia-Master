@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import Image from "../../../public/images/ptlsection.png";
+import Image from "../../assets/images/ptlsection.png";
 
 const HeroPTL = () => {
   const ref = useRef(null);

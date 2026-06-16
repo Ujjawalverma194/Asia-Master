@@ -10,6 +10,7 @@ import BranchFinder from "./pages/BranchFinder";
 import Shipment from "./pages/Shipment";
 
 import Navbar from "./components/Header/Navbar";
+import CustomerPortal from "./pages/CustomerPortal";
 
 function App() {
   return (
@@ -87,6 +88,7 @@ function App() {
 
         {/* Page without Navbar */}
         <Route path="/branch" element={<BranchFinder />} />
+         <Route path="/portal" element={<CustomerPortal />} />
       </Routes>
     </BrowserRouter>
   );

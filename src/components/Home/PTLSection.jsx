@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import Image from "../../../public/images/ptlsectionimage.png";
+import Image from "../../assets/images/ptlsectionimage.png";
 
 const clamp = (v, min, max) => Math.min(Math.max(v, min), max);
 const easeOut = (t) => 1 - Math.pow(1 - t, 3);

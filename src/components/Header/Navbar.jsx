@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import logo from "../../../public/images/asiamasterlogo.png";
+import logo from "../../assets/images/asiamasterlogo.png";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -333,9 +333,10 @@ const Navbar = () => {
             </button>
           </NavLink>
 
-          <button className="portal-btn" style={styles.portalBtn}>
+           <NavLink to="/portal" target="_blank"><button className="portal-btn" style={styles.portalBtn}>
             Customer Portal
           </button>
+          </NavLink>
         </div>
 
         <button

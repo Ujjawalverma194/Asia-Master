@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+// import Video from "../../../public/videos/herosectionvideo.mp4"
 const Hero = () => {
   const [scrollMove, setScrollMove] = useState(0);
 

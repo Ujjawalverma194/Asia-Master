@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
-import logo from "../../../public/images/asiamasterlogo.png";
-
+import logo from "../../assets/images/asiamasterlogo.png";
+import { Link } from "react-router-dom";
 const Footer = () => {
   const ref = useRef(null);
   const [show, setShow] = useState(false);
@@ -8,13 +8,25 @@ const Footer = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => setShow(entry.isIntersecting),
-      { threshold: 0.18 }
+      { threshold: 0.18 },
     );
 
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
-
+  const quickLinks = [
+    { label: "About", path: "/about" },
+    { label: "ERP Login", path: "/erp-login" },
+    { label: "Part Truck Load", path: "/ptl" },
+    { label: "Career", path: "/career" },
+    { label: "Full Truck Load", path: "/ftl" },
+    { label: "Blog", path: "/blog" },
+    { label: "Track Shipment", path: "/track-shipment" },
+         
+    { label: "Contact Us", path: "/contact" },
+    { label: "Vehicles For Sale", path: "/vehicles-for-sale" },
+    { label: "Service Areas", path: "/service-areas" },
+  ];
   const styles = {
     footer: {
       width: "100%",
@@ -403,7 +415,9 @@ const Footer = () => {
       </style>
 
       <div style={styles.glow}></div>
-      <div className="footer-watermark" style={styles.watermark}>ABC</div>
+      <div className="footer-watermark" style={styles.watermark}>
+        ABC
+      </div>
 
       <div className="footer-top" style={styles.top}>
         <img
@@ -420,7 +434,9 @@ const Footer = () => {
           className="footer-col"
           style={{ ...styles.col(0), ...styles.borderCol }}
         >
-          <h3 className="footer-city" style={styles.city}>Delhi:</h3>
+          <h3 className="footer-city" style={styles.city}>
+            Delhi:
+          </h3>
           <p className="footer-address" style={styles.address}>
             HQ – 6 Rani Jhansi Road,
             <br />
@@ -430,7 +446,9 @@ const Footer = () => {
             7065001053, 9320459696
           </p>
 
-          <h3 className="footer-city" style={styles.city}>Mumbai</h3>
+          <h3 className="footer-city" style={styles.city}>
+            Mumbai
+          </h3>
           <p className="footer-address" style={styles.address}>
             Gala 4 &amp; 5, Sector 19, Truck Terminal,
             <br />
@@ -445,24 +463,20 @@ const Footer = () => {
           className="footer-col"
           style={{ ...styles.col(0.12), ...styles.borderCol }}
         >
-          <h3 className="footer-heading" style={styles.heading}>Quick Links</h3>
+          <h3 className="footer-heading" style={styles.heading}>
+            Quick Links
+          </h3>
 
           <div className="footer-links-grid" style={styles.linksGrid}>
-            {[
-              "About",
-              "ERP Login",
-              "Part Truck Load",
-              "Career",
-              "Full Truck Load",
-              "Blog",
-              "Track Shipment",
-              "Contact Us",
-              "Vehicles For Sale",
-              "Service Areas",
-            ].map((item) => (
-              <a href="#" key={item} className="footer-link" style={styles.link}>
-                {item}
-              </a>
+            {quickLinks.map((item) => (
+              <Link
+                key={item.label}
+                to={item.path}
+                className="footer-link"
+                style={styles.link}
+              >
+                {item.label}
+              </Link>
             ))}
           </div>
         </div>
@@ -470,13 +484,17 @@ const Footer = () => {
         <div className="footer-col footer-third" style={styles.col(0.24)}>
           <div className="footer-right-wrap" style={styles.rightWrap}>
             <div>
-              <h3 className="footer-heading" style={styles.heading}>Others</h3>
+              <h3 className="footer-heading" style={styles.heading}>
+                Others
+              </h3>
 
               <p className="footer-note" style={styles.note}>
                 Asia Master was honored with a Transport Ratna.
               </p>
 
-              <h3 className="footer-heading" style={styles.heading}>Follow Us</h3>
+              <h3 className="footer-heading" style={styles.heading}>
+                Follow Us
+              </h3>
 
               <div style={styles.socialRow}>
                 <a href="#" className="footer-social" style={styles.social}>

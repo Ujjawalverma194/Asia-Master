@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import Image1 from "../../../public/images/TrustedSection.png";
+import Image1 from "../../assets/images/TrustedSection.png";
 
 const TrustedSection = () => {
   const sectionRef = useRef(null);
