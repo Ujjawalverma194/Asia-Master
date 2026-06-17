@@ -20,7 +20,7 @@ const Footer = () => {
     { label: "Part Truck Load", path: "/ptl" },
     { label: "Career", path: "/career" },
     { label: "Full Truck Load", path: "/ftl" },
-    { label: "Blog", path: "/blog" },
+   
     { label: "Track Shipment", path: "/track-shipment" },
          
     { label: "Contact Us", path: "/contact" },

@@ -333,10 +333,10 @@ const Navbar = () => {
             </button>
           </NavLink>
 
-           <NavLink to="/portal" target="_blank"><button className="portal-btn" style={styles.portalBtn}>
+           {/* <NavLink to="/portal" target="_blank"><button className="portal-btn" style={styles.portalBtn}>
             Customer Portal
           </button>
-          </NavLink>
+          </NavLink> */}
         </div>
 
         <button

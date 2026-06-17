@@ -11,10 +11,12 @@ import Shipment from "./pages/Shipment";
 
 import Navbar from "./components/Header/Navbar";
 import CustomerPortal from "./pages/CustomerPortal";
-
+import ScrollToTop from "./components/ScrolloToTop";
+import PageNotFound from "./pages/PageNotFound";
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         {/* Pages with Navbar */}
         <Route
@@ -88,7 +90,15 @@ function App() {
 
         {/* Page without Navbar */}
         <Route path="/branch" element={<BranchFinder />} />
-         <Route path="/portal" element={<CustomerPortal />} />
+        <Route
+          path="*"
+          element={
+            <>
+              {/* <Navbar /> */}
+              <PageNotFound/>
+            </>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );
